@@ -2,10 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+// Сам добавил
+use App\Http\Controllers\MyPageController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
+
+Route::get('/books', function() {
+    return 'My books';
+});
+
+Route::get('/courses', function (){
+    return 'My Courses';
+});
+
+Route::get('/projects', function () {
+    return 'My projects';
+});
+
+Route::get('/mypage', [MyPageController::class, 'index']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
