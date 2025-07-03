@@ -20,6 +20,10 @@ Route::get('/post/create', [PostController::class, 'createPost']);
 Route::get('/post/update', [PostController::class, 'updatePost']);
 // Удаление записей из таблицы
 Route::get('/post/delete', [PostController::class, 'deletePost']);
+// Чтение или создание записи
+Route::get('/post/first_or_create', [PostController::class, 'firstOrCreate']);
+// Обновление или создание записи
+Route::get('/post/update_or_create', [PostController::class, 'updateOrCreate']);
 
 Route::get('/project', [ProjectController::class, 'getProject']);
 

@@ -51,4 +51,37 @@ class PostController extends Controller
         $post->delete();
         dd('post deleted');
     }
+
+    public function firstOrCreate() {
+        $anotherPost = [
+            'title' => 'new project on laravel',
+            'content' => 'another project on laravel',
+            'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
+            'likes' => 777,
+            'is_published' => 0,
+        ];
+        
+        // Если есть запись с уникальным полем, то возвращается она
+        // Если нету , то создаётся
+        $newPost = POST::firstOrCreate([
+            'title' => 'CRUD'
+        ], $anotherPost);
+        dd($newPost->title);
+    }
+
+    public function updateOrCreate() {
+        $updatePost = [
+            'content' => 'update crud',
+            'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
+            'likes' => 666,
+            'is_published' => 0,
+        ];
+        // Если есть запись с уникальным полем обновляет все остальные поля  в этой записи,
+        // если нет, то создает её
+        $post = POST::updateOrCreate([
+            'title' => 'new project on laravel111'
+        ], $updatePost);
+
+        dd('updated');
+    }
 }
