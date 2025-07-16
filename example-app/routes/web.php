@@ -25,6 +25,9 @@ Route::get('/post/first_or_create', [PostController::class, 'firstOrCreate']);
 // Обновление или создание записи
 Route::get('/post/update_or_create', [PostController::class, 'updateOrCreate']);
 
+// BLADE - view
+Route::get('/post/index', [PostController::class, 'index']);
+
 Route::get('/project', [ProjectController::class, 'getProject']);
 
 Route::get('/mypage', [MyPageController::class, 'index']);

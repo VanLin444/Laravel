@@ -7,23 +7,29 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function index() {
+        
+        $posts = POST::all();
+        return view('posts', compact('posts'));
+    }
+
     public function getPost() {
         $post = Post::find(1);
-        dd($post->content);
+        dd($post->post_content);
     }
 
     public function createPost() {
         $postArr = [
             [
                 'title' => 'Laravel project',
-                'content' => 'content about project',
+                'post_content' => 'content about project',
                 'image' => 'https://ru.wikipedia.org/wiki/PHP#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Webysther_20160423_-_Elephpant.svg',
                 'likes' => 27,
                 'is_published' => 1,
             ],
             [
                 'title' => 'Blog on Laravel',
-                'content' => 'content about how to do blog on laravel',
+                'post_content' => 'content about how to do blog on laravel',
                 'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
                 'likes' => 44,
                 'is_published' => 1,
@@ -41,7 +47,7 @@ class PostController extends Controller
         $post = POST::find(3);
         $post->update([
             'title' => 'How fix bugs',
-            'content' => 'today we learn how fix bugs on php',
+            'post_content' => 'today we learn how fix bugs on php',
         ]);
         dd('updated');
     }
@@ -55,7 +61,7 @@ class PostController extends Controller
     public function firstOrCreate() {
         $anotherPost = [
             'title' => 'new project on laravel',
-            'content' => 'another project on laravel',
+            'post_content' => 'another project on laravel',
             'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
             'likes' => 777,
             'is_published' => 0,
@@ -71,7 +77,7 @@ class PostController extends Controller
 
     public function updateOrCreate() {
         $updatePost = [
-            'content' => 'update crud',
+            'post_content' => 'update crud',
             'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
             'likes' => 666,
             'is_published' => 0,
