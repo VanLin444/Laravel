@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@import '~bootstrap/scss/bootstrap.scss';
+
 @plugin 'tailwindcss-animate';
 
 @source '../views';
