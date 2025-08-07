@@ -34,7 +34,8 @@ Route::get('/main', [MainController::class, 'index'])->name('main.index');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-
+// CRUD
+Route::post('/post', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/project', [ProjectController::class, 'getProject']);
 
@@ -50,6 +51,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

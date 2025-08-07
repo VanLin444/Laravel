@@ -7,43 +7,37 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index() {
-        
+    public function index()
+    {
+
         $posts = POST::all();
-        return view('posts', compact('posts'));
+        return view('post.index', compact('posts'));
     }
 
-    public function getPost() {
+    public function getPost()
+    {
         $post = Post::find(1);
         dd($post->post_content);
     }
 
-    public function createPost() {
-        $postArr = [
-            [
-                'title' => 'Laravel project',
-                'post_content' => 'content about project',
-                'image' => 'https://ru.wikipedia.org/wiki/PHP#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Webysther_20160423_-_Elephpant.svg',
-                'likes' => 27,
-                'is_published' => 1,
-            ],
-            [
-                'title' => 'Blog on Laravel',
-                'post_content' => 'content about how to do blog on laravel',
-                'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
-                'likes' => 44,
-                'is_published' => 1,
-            ],
-        ];
-
-        foreach ($postArr as $item) {
-            POST::create($item);
-        }
-
-        dd('created');
+    public function createPost()
+    {
+        return view('post.create');
     }
 
-    public function updatePost() {
+    public function store()
+    {
+        $data = request()->validate([
+            'title' => 'string',
+            'post_content' => 'string',
+            'image' => 'string',
+        ]);
+        POST::create($data);
+        return redirect()->route('post.index');
+    }
+
+    public function updatePost()
+    {
         $post = POST::find(3);
         $post->update([
             'title' => 'How fix bugs',
@@ -52,13 +46,15 @@ class PostController extends Controller
         dd('updated');
     }
 
-    public function deletePost() {
+    public function deletePost()
+    {
         $post = POST::find(2);
         $post->delete();
         dd('post deleted');
     }
 
-    public function firstOrCreate() {
+    public function firstOrCreate()
+    {
         $anotherPost = [
             'title' => 'new project on laravel',
             'post_content' => 'another project on laravel',
@@ -66,7 +62,7 @@ class PostController extends Controller
             'likes' => 777,
             'is_published' => 0,
         ];
-        
+
         // Если есть запись с уникальным полем, то возвращается она
         // Если нету , то создаётся
         $newPost = POST::firstOrCreate([
@@ -75,7 +71,8 @@ class PostController extends Controller
         dd($newPost->title);
     }
 
-    public function updateOrCreate() {
+    public function updateOrCreate()
+    {
         $updatePost = [
             'post_content' => 'update crud',
             'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
