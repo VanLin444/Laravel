@@ -36,6 +36,35 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
+    public function show($id)
+    {
+        $post = POST::findOrFail($id);
+        return view('post.show', compact('post'));
+    }
+
+    public function edit($id)
+    {
+        $post = POST::findOrFail($id);
+        return view('post.edit', compact('post'));
+    }
+
+    public function update(POST $post)
+    {
+        $data = request()->validate([
+            'title' => 'string',
+            'post_content' => 'string',
+            'image' => 'string',
+        ]);
+        $post->update($data);
+        return redirect()->route('post.show', $post->id);
+    }
+
+    public function destroy(POST $post)
+    {
+        $post->delete();
+        return redirect()->route('post.index');
+    }
+
     public function updatePost()
     {
         $post = POST::find(3);

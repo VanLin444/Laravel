@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('content')
-<a href="{{ route('post.create') }}" class="btn btn-primary">Add new post</a>
 <table class="table">
     <thead>
         <tr>
@@ -11,14 +10,25 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($posts as $post)
         <tr>
             <th scope="row">{{$post->id}}</th>
-            <td><a href="{{ route('post.show', $post->id) }}">{{$post->title}}</a></td>
+            <td>{{$post->title}}</td>
             <td>{{$post->post_content}}</td>
             <td>{{$post->likes}}</td>
         </tr>
-        @endforeach
     </tbody>
 </table>
+<div>
+    <a href="{{ route('post.edit', $post->id) }}" class="btn btn-success">Изменить</a>
+</div>
+<div>
+    <form action="{{ route('post.delete', $post->id) }}" method="POST">
+        @csrf
+        @method('delete')
+        <input type="submit" value="Удалить" class="btn btn-danger">
+    </form>
+</div>
+<div>
+    <a href="{{ route('post.index') }}" class="btn btn-dark">Назад</a>
+</div>
 @endsection

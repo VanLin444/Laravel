@@ -18,7 +18,7 @@ Route::get('/', function () {
 // Чтение записей из таблицы
 Route::get('/post/get', [PostController::class, 'getPost']);
 // Создание записи в таблице
-Route::get('/post/create', [PostController::class, 'createPost']);
+Route::get('/post/create', [PostController::class, 'createPost'])->name('post.create');
 // Изменение записи в таблице
 Route::get('/post/update', [PostController::class, 'updatePost']);
 // Удаление записей из таблицы
@@ -36,6 +36,10 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
 // CRUD
 Route::post('/post', [PostController::class, 'store'])->name('post.store');
+Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
+Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+Route::patch('/post/{post}', [PostController::class, 'update'])->name('post.update');
+Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('post.delete');
 
 Route::get('/project', [ProjectController::class, 'getProject']);
 
