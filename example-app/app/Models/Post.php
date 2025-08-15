@@ -11,4 +11,8 @@ class Post extends Model
     protected $table = 'posts';
     // Разрешить изменять и добавлять атрибуты в БД
     protected $guarded = [];
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
+    }
 }
