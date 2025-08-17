@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,8 @@ class PostController extends Controller
 
     public function createPost()
     {
-        return view('post.create');
+        $categories = Category::all();
+        return view('post.create', compact('categories'));
     }
 
     public function store()
@@ -31,6 +34,7 @@ class PostController extends Controller
             'title' => 'string',
             'post_content' => 'string',
             'image' => 'string',
+            'category_id' => 'string',
         ]);
         POST::create($data);
         return redirect()->route('post.index');
@@ -44,8 +48,9 @@ class PostController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::all();
         $post = POST::findOrFail($id);
-        return view('post.edit', compact('post'));
+        return view('post.edit', compact('post', 'categories'));
     }
 
     public function update(POST $post)
@@ -54,6 +59,7 @@ class PostController extends Controller
             'title' => 'string',
             'post_content' => 'string',
             'image' => 'string',
+            'category_id' => 'string',
         ]);
         $post->update($data);
         return redirect()->route('post.show', $post->id);

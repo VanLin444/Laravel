@@ -15,6 +15,14 @@
         <label for="postImage" class="form-label">Изображение :</label>
         <input type="text" class="form-control" id="postImage" name="image" value="{{ $post->image}}">
     </div>
+    <div>
+            <label for="category">Категории:</label>
+            <select class="form-select mb-3" id="category" name="category_id">
+                @foreach ($categories as $category)
+                    <option {{$category->id === $post->category->id ? ' selected' : ''}} value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
     <button type="submit" class="btn btn-primary">Изменить</button>
 </form>
 @endsection
