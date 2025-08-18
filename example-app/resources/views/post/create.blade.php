@@ -15,10 +15,18 @@
             <input type="text" class="form-control" id="postImage" name="image">
         </div>
         <div>
-            <label for="tags">Тэги:</label>
-            <select class="form-select mb-3" aria-label="Пример выбора по умолчанию" id="tags" name="category_id">
+            <label for="categories">Категории:</label>
+            <select class="form-select mb-3" id="categories" name="category_id">
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="tags">Теги:</label>
+            <select class="form-select" multiple id="tags" name="tags[]">
+                @foreach ($tags as $tag)
+                    <option value="{{ $tag->id }}">{{ $tag->title }}</option>
                 @endforeach
             </select>
         </div>

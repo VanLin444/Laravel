@@ -1,10 +1,9 @@
 @extends('layouts.main')
 @section('content')
-<ul class="list-group">
-    <li class="list-group-item">Элемент</li>
-    <li class="list-group-item">Второй элемент</li>
-    <li class="list-group-item">Третий элемент</li>
-    <li class="list-group-item">Четвертый элемент</li>
-    <li class="list-group-item">И пятый</li>
-</ul>
+    <select class="form-select" multiple aria-label="Пример выбора по умолчанию">
+        <option selected>Откройте это меню выбора</option>
+        <option value="1">Один</option>
+        <option value="2">Два</option>
+        <option value="3">Три</option>
+    </select>
 @endsection

@@ -14,6 +14,6 @@ class MainController extends Controller
         return view('main', compact('posts')); */
         $post = Post::find(1);
         $tag = Tag::find(1);
-        dd($tag->posts);
+        return view('main');
     }
 }
