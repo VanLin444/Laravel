@@ -55,7 +55,8 @@ class PostController extends Controller
     {
         $categories = Category::all();
         $post = POST::findOrFail($id);
-        return view('post.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+        return view('post.edit', compact('post', 'categories', 'tags'));
     }
 
     public function update(POST $post)
@@ -65,8 +66,13 @@ class PostController extends Controller
             'post_content' => 'string',
             'image' => 'string',
             'category_id' => 'string',
+            'tags' => '',
         ]);
+        $tags = $data['tags'];
+        unset($data['tags']);
+
         $post->update($data);
+        $post->tags()->sync($tags);
         return redirect()->route('post.show', $post->id);
     }
 
