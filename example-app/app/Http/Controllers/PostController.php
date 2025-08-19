@@ -32,8 +32,8 @@ class PostController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'title' => 'string',
-            'post_content' => 'string',
+            'title' => 'required|string',
+            'post_content' => 'required|string',
             'image' => 'string',
             'category_id' => 'string',
             'tags' => '',
@@ -62,8 +62,8 @@ class PostController extends Controller
     public function update(POST $post)
     {
         $data = request()->validate([
-            'title' => 'string',
-            'post_content' => 'string',
+            'title' => 'required|string',
+            'post_content' => 'required|string',
             'image' => 'string',
             'category_id' => 'string',
             'tags' => '',
