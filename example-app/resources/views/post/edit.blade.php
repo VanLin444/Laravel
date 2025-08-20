@@ -9,7 +9,7 @@
         </div>
         <div class="mb-3">
             <label for="postContent" class="form-label">Текст :</label>
-            <textarea class="form-control" id="postContent" name="post_content">{{ $post->post_content }}</textarea>
+            <textarea class="form-control" id="postContent" name="content">{{ $post->content }}</textarea>
         </div>
         <div class="mb-3">
             <label for="postImage" class="form-label">Изображение :</label>
@@ -32,7 +32,7 @@
                         @foreach ($post->tags as $postTag)
                             {{ $tag->id === $postTag->id ? ' selected' : '' }}
                         @endforeach
-                        value="{{ $tag->id }}">{{ $tag->title }}</option>
+                    value="{{ $tag->id }}">{{ $tag->title }}</option>
                 @endforeach
             </select>
         </div>

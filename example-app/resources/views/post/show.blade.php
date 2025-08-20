@@ -13,7 +13,7 @@
         <tr>
             <th scope="row">{{$post->id}}</th>
             <td>{{$post->title}}</td>
-            <td>{{$post->post_content}}</td>
+            <td>{{$post->content}}</td>
             <td>{{$post->likes}}</td>
         </tr>
     </tbody>

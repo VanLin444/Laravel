@@ -4,15 +4,15 @@
         @csrf
         <div class="mb-3">
             <label for="postName" class="form-label">Название поста :</label>
-            <input type="text" class="form-control" id="postName" name="title" value="{{ old('title') }}">
+            <input type="text" class="form-control" id="postTitle" name="title" value="{{ old('title') }}">
             @error('title')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="postContent" class="form-label">Текст :</label>
-            <textarea class="form-control" id="postContent" name="post_content">{{old('post_content')}}</textarea>
-            @error('post_content')
+            <textarea class="form-control" id="postContent" name="content">{{old('content')}}</textarea>
+            @error('content')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>

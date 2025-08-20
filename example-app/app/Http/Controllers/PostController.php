@@ -15,11 +15,10 @@ class PostController extends Controller
         $posts = POST::all();
         return view('post.index', compact('posts'));
     }
-
     public function getPost()
     {
         $post = Post::find(1);
-        dd($post->post_content);
+        dd($post->content);
     }
 
     public function createPost()
@@ -33,7 +32,7 @@ class PostController extends Controller
     {
         $data = request()->validate([
             'title' => 'required|string',
-            'post_content' => 'required|string',
+            'content' => 'required|string',
             'image' => 'string',
             'category_id' => 'string',
             'tags' => '',
@@ -63,7 +62,7 @@ class PostController extends Controller
     {
         $data = request()->validate([
             'title' => 'required|string',
-            'post_content' => 'required|string',
+            'content' => 'required|string',
             'image' => 'string',
             'category_id' => 'string',
             'tags' => '',
@@ -87,7 +86,7 @@ class PostController extends Controller
         $post = POST::find(3);
         $post->update([
             'title' => 'How fix bugs',
-            'post_content' => 'today we learn how fix bugs on php',
+            'content' => 'today we learn how fix bugs on php',
         ]);
         dd('updated');
     }
@@ -103,7 +102,7 @@ class PostController extends Controller
     {
         $anotherPost = [
             'title' => 'new project on laravel',
-            'post_content' => 'another project on laravel',
+            'content' => 'another project on laravel',
             'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
             'likes' => 777,
             'is_published' => 0,
@@ -120,7 +119,7 @@ class PostController extends Controller
     public function updateOrCreate()
     {
         $updatePost = [
-            'post_content' => 'update crud',
+            'content' => 'update crud',
             'image' => 'https://ru.wikipedia.org/wiki/Laravel#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Laravel.svg',
             'likes' => 666,
             'is_published' => 0,
