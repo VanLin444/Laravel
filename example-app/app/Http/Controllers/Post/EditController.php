@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 
-class EditController extends Controller
+class EditController extends BaseController
 {
     public function __invoke($id)
     {
