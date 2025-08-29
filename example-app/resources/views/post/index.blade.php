@@ -21,4 +21,7 @@
         @endforeach
     </tbody>
 </table>
+<div style="display: flex; justify-content: center;">
+    {{ $posts->links() }}
+</div>
 @endsection
