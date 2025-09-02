@@ -22,6 +22,6 @@
     </tbody>
 </table>
 <div style="display: flex; justify-content: center;">
-    {{ $posts->links() }}
+    {{ $posts->withQueryString()->links() }}
 </div>
 @endsection
