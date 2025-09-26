@@ -25,7 +25,7 @@
     <!--begin::Accessibility Features-->
     <!-- Skip links will be dynamically added by accessibility.js -->
     <meta name="supported-color-schemes" content="light dark" />
-    <link rel="preload" href="./css/adminlte.css" as="style" />
+    <link rel="preload" href="./dist/css/adminlte.css" as="style" />
     <!--end::Accessibility Features-->
 
     <!--begin::Fonts-->
@@ -45,7 +45,7 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
 
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="./css/adminlte.css" />
+    <link rel="stylesheet" href="./dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
 
     <!-- apexcharts -->
@@ -103,7 +103,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="./assets/img/user1-128x128.jpg" alt="User Avatar"
+                                        <img src="./src/assets/img/user1-128x128.jpg" alt="User Avatar"
                                             class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -125,7 +125,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="./assets/img/user8-128x128.jpg" alt="User Avatar"
+                                        <img src="./src/assets/img/user8-128x128.jpg" alt="User Avatar"
                                             class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -148,7 +148,7 @@
                                 <!--begin::Message-->
                                 <div class="d-flex">
                                     <div class="flex-shrink-0">
-                                        <img src="./assets/img/user3-128x128.jpg" alt="User Avatar"
+                                        <img src="./src/assets/img/user3-128x128.jpg" alt="User Avatar"
                                             class="img-size-50 rounded-circle me-3" />
                                     </div>
                                     <div class="flex-grow-1">
@@ -213,14 +213,14 @@
                     <!--begin::User Menu Dropdown-->
                     <li class="nav-item dropdown user-menu">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src="./assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow"
+                            <img src="./src/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow"
                                 alt="User Image" />
                             <span class="d-none d-md-inline">Alexander Pierce</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <!--begin::User Image-->
                             <li class="user-header text-bg-primary">
-                                <img src="./assets/img/user2-160x160.jpg" class="rounded-circle shadow"
+                                <img src="./src/assets/img/user2-160x160.jpg" class="rounded-circle shadow"
                                     alt="User Image" />
                                 <p>
                                     Alexander Pierce - Web Developer
@@ -267,7 +267,7 @@
                 <!--begin::Brand Link-->
                 <a href="./index.html" class="brand-link">
                     <!--begin::Brand Image-->
-                    <img src="./assets/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    <img src="./src/assets/img/AdminLTELogo.png" alt="AdminLTE Logo"
                         class="brand-image opacity-75 shadow" />
                     <!--end::Brand Image-->
                     <!--begin::Brand Text-->
@@ -893,7 +893,7 @@
                                                 <span class="direct-chat-timestamp float-end"> 23 Jan 2:00 pm </span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="./assets/img/user1-128x128.jpg"
+                                            <img class="direct-chat-img" src="./src/assets/img/user1-128x128.jpg"
                                                 alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">
@@ -910,7 +910,7 @@
                                                 <span class="direct-chat-timestamp float-start"> 23 Jan 2:05 pm </span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="./assets/img/user3-128x128.jpg"
+                                            <img class="direct-chat-img" src="./src/assets/img/user3-128x128.jpg"
                                                 alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">You better believe it!</div>
@@ -925,7 +925,7 @@
                                                 <span class="direct-chat-timestamp float-end"> 23 Jan 5:37 pm </span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="./assets/img/user1-128x128.jpg"
+                                            <img class="direct-chat-img" src="./src/assets/img/user1-128x128.jpg"
                                                 alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">
@@ -942,7 +942,7 @@
                                                 <span class="direct-chat-timestamp float-start"> 23 Jan 6:10 pm </span>
                                             </div>
                                             <!-- /.direct-chat-infos -->
-                                            <img class="direct-chat-img" src="./assets/img/user3-128x128.jpg"
+                                            <img class="direct-chat-img" src="./src/assets/img/user3-128x128.jpg"
                                                 alt="message user image" />
                                             <!-- /.direct-chat-img -->
                                             <div class="direct-chat-text">I would love to.</div>
@@ -958,7 +958,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="contacts-list-img"
-                                                        src="./assets/img/user1-128x128.jpg" alt="User Avatar" />
+                                                        src="./src/assets/img/user1-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -976,7 +976,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="contacts-list-img"
-                                                        src="./assets/img/user7-128x128.jpg" alt="User Avatar" />
+                                                        src="./src/assets/img/user7-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -994,7 +994,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="contacts-list-img"
-                                                        src="./assets/img/user3-128x128.jpg" alt="User Avatar" />
+                                                        src="./src/assets/img/user3-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1012,7 +1012,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="contacts-list-img"
-                                                        src="./assets/img/user5-128x128.jpg" alt="User Avatar" />
+                                                        src="./src/assets/img/user5-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1029,7 +1029,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="contacts-list-img"
-                                                        src="./assets/img/user6-128x128.jpg" alt="User Avatar" />
+                                                        src="./src/assets/img/user6-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1047,7 +1047,7 @@
                                             <li>
                                                 <a href="#">
                                                     <img class="contacts-list-img"
-                                                        src="./assets/img/user8-128x128.jpg" alt="User Avatar" />
+                                                        src="./src/assets/img/user8-128x128.jpg" alt="User Avatar" />
 
                                                     <div class="contacts-list-info">
                                                         <span class="contacts-list-name">
@@ -1155,7 +1155,7 @@
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="./js/adminlte.js"></script>
+    <script src="./dist/js/adminlte.js"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
     <script>
         const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';

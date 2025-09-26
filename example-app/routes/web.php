@@ -24,6 +24,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
     Route::patch('/post/{post}', 'UpdateController')->name('post.update');
     Route::delete('/post/{post}', 'DestroyController')->name('post.delete');
 });
+
+// Группируем все контроллеры относящиеся к Admin
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Post'], function () {
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+    });
+});
+
 // BLADE - view
 Route::get('/main', [MainController::class, 'index'])->name('main.index');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts.index');
