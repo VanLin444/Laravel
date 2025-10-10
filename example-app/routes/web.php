@@ -1,18 +1,20 @@
 <?php
 
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 // Добавление моего контроллера
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Middleware\AdminPanelMiddleware;
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return Inertia::render('welcome');
-})->name('home');
+})->name('home1');
 
 // Группируем все контроллеры относящиеся к Post
 Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
@@ -26,7 +28,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Post'], function () {
 });
 
 // Группируем все контроллеры относящиеся к Admin
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::group(['namespace' => 'Post'], function () {
         Route::get('/post', 'IndexController')->name('admin.post.index');
     });
@@ -74,8 +76,6 @@ require __DIR__.'/auth.php';
 
 //Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
