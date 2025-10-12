@@ -3,8 +3,12 @@
 namespace App\Providers;
 
 //use Illuminate\Pagination\Paginator;
-use Illuminate\Support\ServiceProvider;
+use App\Models\User;
+//use Illuminate\Foundation\Auth\User;
+use App\Policies\AdminPolicy;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::defaultView('vendor.pagination.bootstrap-4');
+        Gate::policy(User::class, AdminPolicy::class);
     }
 }
