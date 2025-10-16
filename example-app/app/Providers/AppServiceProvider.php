@@ -28,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::defaultView('vendor.pagination.bootstrap-4');
         Gate::policy(User::class, AdminPolicy::class);
-        VerifyCsrfToken::except(['/post']);
+        VerifyCsrfToken::except(['/post', '/post/*']);
     }
 }

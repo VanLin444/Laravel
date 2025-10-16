@@ -11,6 +11,8 @@ class Service
         unset($data['tags']);
         $post = POST::create($data);
         $post->tags()->attach($tags);
+        // Для JSON удали потом
+        return $post;
     }
 
     public function update($post, $data)
@@ -19,5 +21,7 @@ class Service
         unset($data['tags']);
         $post->update($data);
         $post->tags()->sync($tags);
+        // Для JSON удали потом
+        return $post->fresh();
     }
 }
