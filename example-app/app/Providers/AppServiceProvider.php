@@ -9,6 +9,7 @@ use App\Policies\AdminPolicy;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::defaultView('vendor.pagination.bootstrap-4');
         Gate::policy(User::class, AdminPolicy::class);
+        VerifyCsrfToken::except(['/post']);
     }
 }
